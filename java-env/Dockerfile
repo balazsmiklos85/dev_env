@@ -21,7 +21,8 @@ USER bmiklos
 WORKDIR /home/bmiklos/workspace
 
 RUN curl -s "https://get.sdkman.io" | bash
-RUN bash -c "source ~/.sdkman/bin/sdkman-init.sh"
-RUN bash -c "sdk install java 11.0.14.1-jbr"
+RUN bash -c "source ~/.sdkman/bin/sdkman-init.sh && \
+    sdk install java 24.0.1-open && \
+    sdk install gradle 8.10"
 
 CMD ["/usr/bin/fish"]

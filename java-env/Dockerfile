@@ -2,7 +2,7 @@ FROM alpine:latest
 
 RUN apk update && \
     apk upgrade && \
-    apk add --no-cache curl fish sudo && \
+    apk add --no-cache bash curl fish sudo zip && \
     curl -sS https://starship.rs/install.sh | sh -s -- --yes
 
 RUN addgroup -g 1000 bmiklos && \
@@ -11,5 +11,9 @@ RUN addgroup -g 1000 bmiklos && \
 
 USER bmiklos
 WORKDIR /home/bmiklos/workspace
+
+RUN curl -s "https://get.sdkman.io" | bash
+RUN bash -c "source ~/.sdkman/bin/sdkman-init.sh && \
+    sdk install java 11.0.14.1-jbr"
 
 CMD ["/usr/bin/fish"]

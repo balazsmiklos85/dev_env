@@ -20,9 +20,8 @@ RUN chown -R bmiklos:bmiklos /home/bmiklos/.config
 USER bmiklos
 WORKDIR /home/bmiklos/workspace
 
-
 RUN curl -s "https://get.sdkman.io" | bash
-RUN bash -c "source ~/.sdkman/bin/sdkman-init.sh && \
-    sdk install java 11.0.14.1-jbr"
+RUN bash -c "source ~/.sdkman/bin/sdkman-init.sh"
+RUN bash -c "sdk install java 11.0.14.1-jbr"
 
 CMD ["/usr/bin/fish"]

@@ -2,7 +2,7 @@ FROM alpine:latest
 
 RUN apk update && \
     apk upgrade && \
-    apk add --no-cache bash curl fish sudo zip && \
+    apk add --no-cache bash curl fish git neovim sudo unzip zip && \
     curl -sS https://starship.rs/install.sh | sh -s -- --yes
 
 RUN addgroup -g 1000 bmiklos && \

@@ -12,7 +12,6 @@ RUN addgroup -g 1000 bmiklos && \
 USER bmiklos
 WORKDIR /home/bmiklos/workspace
 
-RUN curl https://cli-assets.heroku.com/install.sh | sh
 
 RUN curl -s "https://get.sdkman.io" | bash
 RUN bash -c "source ~/.sdkman/bin/sdkman-init.sh && \

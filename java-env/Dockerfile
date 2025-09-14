@@ -1,9 +1,15 @@
 FROM alpine:latest
 
-RUN apk update && \
-    apk upgrade && \
-    apk add --no-cache bash curl fish git neovim postgresql postgresql-contrib sudo unzip zip && \
-    curl -sS https://starship.rs/install.sh | sh -s -- --yes
+RUN apk update
+RUN apk upgrade
+RUN apk add --no-cache fish \
+    git \
+    neovim \
+    openjdk21 \
+    python3 \
+    starship \
+    starship-fish-completion \
+    sudo
 
 RUN addgroup -g 1000 bmiklos && \
     adduser -D -s /usr/bin/fish -u 1000 -G bmiklos bmiklos && \
@@ -19,10 +25,5 @@ RUN chown -R bmiklos:bmiklos /home/bmiklos/.config
 
 USER bmiklos
 WORKDIR /home/bmiklos/workspace
-
-RUN curl -s "https://get.sdkman.io" | bash
-RUN bash -c "source ~/.sdkman/bin/sdkman-init.sh && \
-    sdk install java 24.0.1-open && \
-    sdk install gradle 8.10"
 
 CMD ["/usr/bin/fish"]

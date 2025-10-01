@@ -21,8 +21,10 @@ RUN mkdir -p /tmp/config-repo
 RUN git clone https://github.com/balazsmiklos85/dotfiles.git /tmp/config-repo
 RUN cp -r /tmp/config-repo/* /home/bmiklos/.config/
 RUN rm -rf /tmp/config-repo
+RUN mkdir -p /home/bmiklos/.local/bin
+RUN wget https://projectlombok.org/downloads/lombok.jar -O /home/bmiklos/.local/bin/lombok.jar
 
-RUN chown -R bmiklos:bmiklos /home/bmiklos/.config
+RUN chown -R bmiklos:bmiklos /home/bmiklos/
 
 USER bmiklos
 WORKDIR /home/bmiklos/workspace

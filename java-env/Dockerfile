@@ -6,6 +6,7 @@ RUN apk add --no-cache fish \
     git \
     neovim \
     openjdk21 \
+    openssh-client \
     python3 \
     starship \
     starship-fish-completion \

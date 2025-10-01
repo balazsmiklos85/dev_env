@@ -28,5 +28,7 @@ RUN chown -R bmiklos:bmiklos /home/bmiklos/
 
 USER bmiklos
 WORKDIR /home/bmiklos/workspace
+RUN nvim --headless -c 'Lazy! sync' -c 'qa!'
+RUN nvim --headless -c 'MasonToolsInstallSync' -c 'qa!'
 
 CMD ["/usr/bin/fish"]

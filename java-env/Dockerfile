@@ -2,7 +2,8 @@ FROM alpine:latest
 
 RUN apk update
 RUN apk upgrade
-RUN apk add --no-cache fish \
+RUN apk add --no-cache bash \
+    fish \
     git \
     neovim \
     openjdk21 \
